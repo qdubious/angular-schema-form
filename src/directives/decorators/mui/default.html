@@ -1,5 +1,5 @@
 <div mui-row>
-    <div mui-col="{{form.muiCol}}" class="{{form.htmlClass}}">
+    <div mui-col="{{form.muiCol ? form.muiCol : '1/1'}}" class="{{form.htmlClass}}">
         <label ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
         <input ng-if="!form.fieldAddonLeft && !form.fieldAddonRight"
                ng-show="form.key"

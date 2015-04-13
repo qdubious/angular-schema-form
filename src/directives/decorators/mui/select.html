@@ -1,0 +1,18 @@
+<div mui-row>
+    <div mui-col="{{form.muiCol}}" class="{{form.htmlClass}} schema-form-select"
+            ng-class="{'has-error': hasError(), 'has-success': hasSuccess(), 'has-feedback': form.feedback !== false}">
+        <div><label class="" ng-show="showTitle()" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label></div>
+        <select ng-model="$$value$$"
+                ng-model-options="form.ngModelOptions"
+                ng-disabled="form.readonly"
+                sf-changed="form"
+                class="{{form.fieldHtmlClass}}"
+                schema-validate="form"
+                ng-options="item.value as item.name group by item.group for item in form.titleMap"
+                name="{{form.key.slice(-1)[0]}}"
+                id="{{form.key.slice(-1)[0]}}">
+        </select>
+
+        <div class="help-block" sf-message="form.description"></div>
+    </div>
+</div>

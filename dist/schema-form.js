@@ -378,9 +378,11 @@ angular.module('schemaForm').provider('schemaFormDecorators',
 
                         scope.ngModel.$setValidity(error, validity === true);
 
-                        // Setting or removing a validity can change the field to believe its valid
-                        // but its not. So lets trigger its validation as well.
-                        scope.$broadcast('schemaFormValidate');
+                        if (validity === true) {
+                          // Setting or removing a validity can change the field to believe its valid
+                          // but its not. So lets trigger its validation as well.
+                          scope.$broadcast('schemaFormValidate');
+                        }
                       }
                   })
                 }
@@ -1749,6 +1751,11 @@ angular.module('schemaForm').directive('schemaValidate', ['sfValidator', 'sfSele
         form = getForm();
         //Still might be undefined
         if (!form) {
+          return viewValue;
+        }
+
+        // Omit TV4 validation
+        if (scope.options && scope.options.tv4Validation === false) {
           return viewValue;
         }
 

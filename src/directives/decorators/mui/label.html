@@ -1,0 +1,8 @@
+<div mui-row>
+    <div mui-col="{{form.muiCol ? form.muiCol : '1/1'}}" ng-class="{'has-error': hasError(), 'has-success': hasSuccess()}" class="form-group {{form.htmlClass}}">
+        <div class="{{form.htmlClass}}">
+            <label ng-class="{'sr-only': !showTitle()}">{{form.title}}</label>
+            <div ng-model="$$value$$" sf-writeout>{{$$value$$}}</div>
+        </div>
+    </div>
+</div>
